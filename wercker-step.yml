@@ -1,0 +1,14 @@
+name: deploy-googleplay
+version: 0.1.0
+description: Deploy Android App to Google Play
+kyewords:
+  - android
+  - google play
+  - deploy
+properties:
+    app_path:
+      type: string
+      required: true
+    key_path:
+      type: string
+      required: false
