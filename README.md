@@ -21,4 +21,4 @@ To use this step, you need to set $SERVICE_ACCOUNT_EMAIL, key_file, package_name
 
 ## Author
 
-[kagweb](https://github.com/kagweb)
+[anectinc](https://github.com/anectinc)
