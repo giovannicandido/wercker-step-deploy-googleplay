@@ -9,7 +9,7 @@ In the `wercker.yml` of your application use the following step definition:
 
 ```yaml
 steps:
-   - kagweb/deploy-googleplay:
+   - anectinc/deploy-googleplay:
      service_account_email: $SERVICE_ACCOUNT_EMAIL
      key_file: /PATH/TO/KEY
      package_name: PACKAGE_NAME
