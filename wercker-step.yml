@@ -1,14 +1,19 @@
 name: deploy-googleplay
-version: 0.1.0
+version: 0.0.1
 description: Deploy Android App to Google Play
 kyewords:
   - android
   - google play
   - deploy
+  - upload
+  - apk
 properties:
-    app_path:
+    package_name:
       type: string
       required: true
-    key_path:
+    app_file:
+      type: string
+      required: true
+    track:
       type: string
       required: false
