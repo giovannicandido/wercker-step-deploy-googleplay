@@ -17,7 +17,9 @@
 
 import argparse
 import sys
-from apiclient import sample_tools
+from apiclient.discovery import build
+from apiclient.http import MediaFileUpload
+import httplib2
 from oauth2client import client
 
 # Declare command-line flags.
