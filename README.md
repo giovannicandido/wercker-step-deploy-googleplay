@@ -1,6 +1,8 @@
 Wercker step Deploy Google Play [![MIT License](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](https://github.com/kagweb/wercker-step-deploy-googleplay/blob/master/LICENCE)
 ====
 
+[![wercker status](https://app.wercker.com/status/e1c4b63dddce4ac791cb4c7bc9c1584b/m "wercker status")](https://app.wercker.com/project/bykey/e1c4b63dddce4ac791cb4c7bc9c1584b)
+
 This is [wercker](http://wercker.com/) deploy step for upload Android app to Google Play.
 
 ## Usage
