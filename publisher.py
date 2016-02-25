@@ -17,7 +17,8 @@
 
 import argparse
 import sys
-from apiclient import sample_tools
+from apiclient.discovery import build
+import httplib2
 from oauth2client import client
 
 # Declare command-line flags.
