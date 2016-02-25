@@ -1,10 +1,10 @@
 #!/bin/bash
 
-apt-get update
-apt-get install -y python2.7
-apt-get install -y python-pip
+sudo apt-get update
+sudo apt-get install -y python2.7
+sudo apt-get install -y python-pip
 echo "python version $(python --version) running"
 echo "pip version $(pip --version) running"
-pip install --upgrade pyopenssl
-pip install --upgrade oauth2client
-pip install --upgrade google-api-python-client
+sudo pip install --upgrade pyopenssl
+sudo pip install --upgrade oauth2client
+sudo pip install --upgrade google-api-python-client
