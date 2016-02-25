@@ -7,5 +7,5 @@ echo "pip version $(pip --version) running"
 sudo pip install --upgrade pyopenssl
 sudo pip install --upgrade httplib2
 sudo pip install --upgrade uritemplate
-sudo pip install --upgrade oauth2client==1.5.2
 sudo pip install --upgrade google-api-python-client==1.4.2
+sudo pip install --upgrade oauth2client==1.5.2
