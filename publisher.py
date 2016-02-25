@@ -17,7 +17,7 @@
 
 import argparse
 import sys
-from apiclient.discovery import build
+from googleapiclient.discovery import build
 import httplib2
 from oauth2client import client
 
