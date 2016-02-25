@@ -1,6 +1,7 @@
 #!/bin/bash
 
 sudo apt-get update
+sudo apt-get install -y build-essential
 sudo apt-get install -y python2.7
 sudo apt-get install -y python-pip
 echo "python version $(python --version) running"
