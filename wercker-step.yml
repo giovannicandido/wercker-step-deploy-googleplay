@@ -1,5 +1,5 @@
 name: deploy-googleplay
-version: 0.0.7
+version: 0.0.8
 description: Deploy Android App to Google Play
 kyewords:
   - android
