@@ -19,7 +19,7 @@ import argparse
 import sys
 from googleapiclient.discovery import build
 import httplib2
-from oauth2client.service_account import ServiceAccountCredentials
+from oauth2client import client
 
 # Declare command-line flags.
 argparser = argparse.ArgumentParser(description='Upload Android app to Google Play.')
@@ -56,7 +56,7 @@ def main(argv):
   key = f.read()
   f.close()
 
-  credentials = ServiceAccountCredentials.from_p12_keyfile(
+  credentials = client.SignedJwtAssertionCredentials(
     service_account_email,
     key,
     scope='https://www.googleapis.com/auth/androidpublisher')
