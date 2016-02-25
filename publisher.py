@@ -19,7 +19,7 @@ import argparse
 import sys
 from apiclient.discovery import build
 import httplib2
-from oauth2client.client import SignedJwtAssertionCredentials
+from oauth2client import client
 
 # Declare command-line flags.
 argparser = argparse.ArgumentParser(description='Upload Android app to Google Play.')
@@ -56,7 +56,7 @@ def main(argv):
   key = f.read()
   f.close()
 
-  credentials = SignedJwtAssertionCredentials(
+  credentials = client.SignedJwtAssertionCredentials(
     service_account_email,
     key,
     scope='https://www.googleapis.com/auth/androidpublisher')
@@ -92,7 +92,7 @@ def main(argv):
 
     print 'Edit "%s" has been committed' % (commit_request['id'])
 
-  except AccessTokenRefreshError:
+  except client.AccessTokenRefreshError:
     print ('The credentials have been revoked or expired, please re-run the '
            'application to re-authorize')
 
