@@ -19,7 +19,7 @@ import argparse
 import sys
 from apiclient.discovery import build
 import httplib2
-from oauth2client import client
+from oauth2client.client import SignedJwtAssertionCredentials
 
 # Declare command-line flags.
 argparser = argparse.ArgumentParser(description='Upload Android app to Google Play.')
@@ -56,10 +56,10 @@ def main(argv):
   key = f.read()
   f.close()
 
-  credentials = client.SignedJwtAssertionCredentials(
-      service_account_email,
-      key,
-      scope='https://www.googleapis.com/auth/androidpublisher')
+  credentials = SignedJwtAssertionCredentials(
+    service_account_email,
+    key,
+    scope='https://www.googleapis.com/auth/androidpublisher')
   http = httplib2.Http()
   http = credentials.authorize(http)
 
@@ -72,29 +72,29 @@ def main(argv):
     edit_id = result['id']
 
     apk_response = service.edits().apks().upload(
-        editId=edit_id,
-        packageName=package_name,
-        media_body=apk_file).execute()
+      editId=edit_id,
+      packageName=package_name,
+      media_body=apk_file).execute()
 
     print 'Version code %d has been uploaded' % apk_response['versionCode']
 
     track_response = service.edits().tracks().update(
-        editId=edit_id,
-        track=track,
-        packageName=package_name,
-        body={u'versionCodes': [apk_response['versionCode']]}).execute()
+      editId=edit_id,
+      track=track,
+      packageName=package_name,
+      body={u'versionCodes': [apk_response['versionCode']]}).execute()
 
     print 'Track %s is set for version code(s) %s' % (
-        track_response['track'], str(track_response['versionCodes']))
+      track_response['track'], str(track_response['versionCodes']))
 
     commit_request = service.edits().commit(
-        editId=edit_id, packageName=package_name).execute()
+      editId=edit_id, packageName=package_name).execute()
 
     print 'Edit "%s" has been committed' % (commit_request['id'])
 
-  except client.AccessTokenRefreshError:
+  except AccessTokenRefreshError:
     print ('The credentials have been revoked or expired, please re-run the '
            'application to re-authorize')
 
 if __name__ == '__main__':
-    main(sys.argv)
+  main(sys.argv)
