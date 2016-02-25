@@ -45,6 +45,12 @@ def main(argv):
   apk_file = flags.apk_file
   track = flags.track
 
+  print 'service_account_email: "%s"' % service_account_email
+  print 'key_file: "%s"' % key_file
+  print 'package_name: "%s"' % package_name
+  print 'apk_file: "%s"' % apk_file
+  print 'track: "%s"' % track
+
   f = file(key_file, 'rb')
   key = f.read()
   f.close()
