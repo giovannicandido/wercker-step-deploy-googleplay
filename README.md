@@ -23,7 +23,7 @@ steps:
 
 To use this step, you need to set $SERVICE_ACCOUNT_EMAIL, key_file, package_name and app_file.
 
-We recommend store your key_pass as env variable.
+We recommend store your *key_pass* as env variable.
 
 ## Author
 

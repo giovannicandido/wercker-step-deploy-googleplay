@@ -20,6 +20,7 @@ import sys
 from googleapiclient.discovery import build
 import httplib2
 from oauth2client import client
+from oauth2client.service_account import ServiceAccountCredentials
 import mimetypes
 
 # Declare command-line flags.
@@ -37,6 +38,7 @@ argparser.add_argument('track',
                        default='alpha',
                        help='Can be \'alpha\', \'beta\', \'production\' or \'rollout\'')
 argparser.add_argument('key_pass',
+                       nargs="?",
                        help='Password to key file.')
 
 def main(argv):
@@ -45,6 +47,7 @@ def main(argv):
   # Process flags and read their values.
   service_account_email = flags.service_account_email
   key_file = flags.key_file
+  key_pass = flags.key_pass
   package_name = flags.package_name
   apk_file = flags.apk_file
   track = flags.track
@@ -54,18 +57,16 @@ def main(argv):
   print 'package_name: %s' % package_name
   print 'apk_file: %s' % apk_file
   print 'track: %s' % track
+  print 'key_pass: %s' % key_pass
 
   # apk mimetype
   mimetypes.add_type('application/vnd.android.package-archive', '.apk')
 
-  f = file(key_file, 'rb')
-  key = f.read()
-  f.close()
-
-  credentials = client.SignedJwtAssertionCredentials(
+  credentials = ServiceAccountCredentials.from_p12_keyfile(
     service_account_email,
-    key,
-    scope='https://www.googleapis.com/auth/androidpublisher')
+    key_file,
+    key_pass,
+    scopes='https://www.googleapis.com/auth/androidpublisher')
   http = httplib2.Http()
   http = credentials.authorize(http)
 
