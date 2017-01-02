@@ -20,6 +20,7 @@ import sys
 from googleapiclient.discovery import build
 import httplib2
 from oauth2client import client
+import mimetypes
 
 # Declare command-line flags.
 argparser = argparse.ArgumentParser(description='Upload Android app to Google Play.')
@@ -35,6 +36,8 @@ argparser.add_argument('track',
                        nargs='?',
                        default='alpha',
                        help='Can be \'alpha\', \'beta\', \'production\' or \'rollout\'')
+argparser.add_argument('key_pass',
+                       help='Password to key file.')
 
 def main(argv):
   flags = argparser.parse_args()
@@ -51,6 +54,9 @@ def main(argv):
   print 'package_name: %s' % package_name
   print 'apk_file: %s' % apk_file
   print 'track: %s' % track
+
+  # apk mimetype
+  mimetypes.add_type('application/vnd.android.package-archive', '.apk')
 
   f = file(key_file, 'rb')
   key = f.read()

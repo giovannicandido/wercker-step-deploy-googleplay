@@ -10,16 +10,20 @@ This is [wercker](http://wercker.com/) deploy step for upload Android app to Goo
 In the `wercker.yml` of your application use the following step definition:
 
 ```yaml
+box: atende/google-api-python
 steps:
   - anectinc/deploy-googleplay:
       service_account_email: $SERVICE_ACCOUNT_EMAIL
       key_file: /PATH/TO/KEY
+      key_pass: optional_password_for_key_file
       package_name: PACKAGE_NAME
       app_file: /PATH/TO/APK
       track: TRACK
 ```
 
 To use this step, you need to set $SERVICE_ACCOUNT_EMAIL, key_file, package_name and app_file.
+
+We recommend store your key_pass as env variable.
 
 ## Author
 

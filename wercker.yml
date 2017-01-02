@@ -1,4 +1,4 @@
-box: wercker/default
+box: atende/google-api-python
 build:
   steps:
     - validate-wercker-step
