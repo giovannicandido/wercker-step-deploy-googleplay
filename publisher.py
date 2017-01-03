@@ -57,7 +57,6 @@ def main(argv):
   print 'package_name: %s' % package_name
   print 'apk_file: %s' % apk_file
   print 'track: %s' % track
-  print 'key_pass: %s' % key_pass
 
   # apk mimetype
   mimetypes.add_type('application/vnd.android.package-archive', '.apk')
