@@ -1,3 +1,4 @@
-box:
-  id: atende/google-api-python
-  cmd: /bin/sh
+box: wercker/default
+build:
+  steps:
+    - validate-wercker-step

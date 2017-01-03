@@ -10,7 +10,9 @@ This is [wercker](http://wercker.com/) deploy step for upload Android app to Goo
 In the `wercker.yml` of your application use the following step definition:
 
 ```yaml
-box: atende/google-api-python
+box:
+  id: atende/google-api-python
+  cmd: /bin/ash
 steps:
   - anectinc/deploy-googleplay:
       service_account_email: $SERVICE_ACCOUNT_EMAIL
